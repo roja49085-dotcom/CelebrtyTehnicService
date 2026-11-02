@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dashboard – Celebrity Tehnic Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="title">Celebrity Tehnic Service<small>Dashboard pesanan</small></div>
+    <nav>
+      <a class="btn ghost sm" href="index.html">Kembali ke website</a>
+      <button class="btn ghost sm" id="logout" type="button" hidden>Keluar</button>
+    </nav>
+  </div>
+</header>
+
+<!-- Login PIN -->
+<section class="login" id="loginView">
+  <form class="box" id="loginForm" novalidate>
+    <h1>Masuk dashboard</h1>
+    <p>Masukkan PIN admin untuk melihat pesanan.</p>
+    <label for="pin">PIN</label>
+    <input id="pin" type="password" inputmode="numeric" autocomplete="current-password">
+    <div class="err" id="loginErr" role="alert"></div>
+    <button class="btn" type="submit" style="width:100%;margin-top:6px">Masuk</button>
+  </form>
+</section>
+
+<!-- Dashboard -->
+<main class="wrap" id="appView" hidden>
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <div class="f"><label for="cari">Cari</label><input id="cari" type="search" placeholder="Nama, nomor HP, alamat, atau keluhan"></div>
+    <div class="f small"><label for="fStatus">Status</label>
+      <select id="fStatus"></select></div>
+    <div class="f small"><label for="fPerangkat">Perangkat</label>
+      <select id="fPerangkat"></select></div>
+    <div class="acts">
+      <button class="btn ghost sm" id="exportCsv" type="button" style="color:var(--text)">Unduh CSV</button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>Masuk</th><th>Pelanggan</th><th>Perangkat &amp; keluhan</th><th>Kunjungan</th><th>Status</th><th>Biaya</th><th>Aksi</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="empty" hidden></div>
+  </div>
+
+  <p class="note">Data pesanan tersimpan di browser perangkat ini (localStorage). Pesanan dari pelanggan di HP lain belum masuk ke sini sampai website dihubungkan ke database.</p>
+</main>
+
+<!-- Modal detail -->
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <h2 id="mTitle"></h2>
+    <div class="meta" id="mMeta"></div>
+    <div class="grid">
+      <div class="full info" id="mInfo"></div>
+      <div><label for="mStatus">Status</label><select id="mStatus"></select></div>
+      <div><label for="mBiaya">Biaya servis (Rp)</label><input id="mBiaya" type="number" min="0" step="1000" inputmode="numeric"></div>
+      <div class="full"><label for="mCatatan">Catatan internal</label><textarea id="mCatatan" placeholder="Contoh: kapasitor diganti, garansi 1 bulan"></textarea></div>
+    </div>
+    <div class="foot">
+      <button class="btn danger" id="mHapus" type="button">Hapus</button>
+      <button class="btn ghost" id="mTutup" type="button" style="color:var(--ink)">Batal</button>
+      <button class="btn" id="mSimpan" type="button">Simpan perubahan</button>
+    </div>
+  </div>
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

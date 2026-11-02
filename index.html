@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Celebrity Tehnic Service – Servis AC, Kulkas, Mesin Cuci &amp; TV</title>
+<meta name="description" content="Jasa perbaikan AC, kulkas, mesin cuci, TV dan elektronik rumah tangga. Teknisi datang ke rumah, garansi servis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener">
+  WhatsApp
+</a>
+</head>
+<body>
+
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#" id="logoLink">
+      <i></i>
+      <span class="brand">Celebrity Tehnic Service</span>
+    </a>
+
+    <button
+      class="burger"
+      id="burger"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      aria-controls="menu"
+      type="button"
+    >
+      ☰
+    </button>
+
+    <nav class="menu" id="menu">
+      <a href="#layanan">Layanan</a>
+      <a href="#alur">Cara kerja</a>
+      <a href="#pesan">Pesan servis</a>
+      <a href="#kontak">Kontak</a>
+      <a href="dashboard.html" id="adminLink">Dashboard</a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="publik">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Elektronik rusak? Teknisi kami datang ke rumah Anda.</h1>
+        <p class="lead">Servis AC, kulkas, mesin cuci, TV, dan elektronik rumah tangga lainnya. Biaya dicek di awal, bergaransi setelah selesai.</p>
+      </div>
+      <div class="quick">
+        <h3>Pesan servis sekarang</h3>
+        <p>Pilih cara yang paling mudah untuk Anda.</p>
+        <a class="btn wa-btn" id="waQuick" href="#" target="_blank" rel="noopener">Hubungi lewat WhatsApp</a>
+        <a class="btn ghost" href="#pesan">Isi form pesanan</a>
+        <small>Tanpa daftar akun. Kami hubungi Anda untuk konfirmasi jadwal.</small>
+      </div>
+    </div>
+  </div>
+
+  <section id="layanan">
+    <div class="wrap">
+      <h2>Yang kami perbaiki</h2>
+      <p class="sub">Berikut perangkat dan jenis kerusakan yang biasa kami tangani. Biaya dijelaskan teknisi setelah pengecekan, sebelum dikerjakan.</p>
+      <div class="grid g3" id="layananGrid"></div>
+    </div>
+  </section>
+
+  <section id="alur" class="alt">
+    <div class="wrap">
+      <h2>Cara kerja</h2>
+      <ol class="steps">
+        <li><h3>Hubungi kami</h3>Chat lewat WhatsApp, atau isi form dengan data dan keluhan perangkat.</li>
+        <li><h3>Kami konfirmasi jadwal</h3>Admin menghubungi Anda dalam jam kerja untuk menentukan waktu kunjungan.</li>
+        <li><h3>Teknisi datang &amp; cek</h3>Kerusakan diperiksa, biaya dijelaskan sebelum dikerjakan.</li>
+        <li><h3>Selesai &amp; bergaransi</h3>Perangkat dites bersama Anda, garansi servis berlaku.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="pesan">
+    <div class="wrap">
+      <h2>Pesan servis</h2>
+      <p class="sub">Isi data berikut, lalu kirim pesanan atau kirim langsung lewat WhatsApp.</p>
+      <form id="orderForm" class="card form" novalidate onsubmit="return false">
+        <div><label for="nama">Nama</label><input id="nama" required autocomplete="name"></div>
+        <div><label for="hp">Nomor HP / WhatsApp</label><input id="hp" type="tel" inputmode="tel" required autocomplete="tel"></div>
+        <div><label for="perangkat">Perangkat</label>
+          <select id="perangkat"><option>AC</option><option>Kulkas</option><option>Mesin Cuci</option><option>TV</option><option>Dispenser</option><option>Lainnya</option></select></div>
+        <div><label for="tanggal">Tanggal kunjungan yang diinginkan</label><input id="tanggal" type="date"></div>
+        <div class="full"><label for="alamat">Alamat lengkap</label><input id="alamat" required autocomplete="street-address"></div>
+        <div class="full"><label for="keluhan">Keluhan</label><textarea id="keluhan" placeholder="Contoh: AC tidak dingin dan menetes air" required></textarea></div>
+        <div class="full actions">
+          <button class="btn" id="kirim" type="button">Kirim pesanan</button>
+          <button class="btn wa-btn" id="kirimWA" type="button">Kirim lewat WhatsApp</button>
+        </div>
+        <div class="full notice" id="sukses" hidden></div>
+        <div class="full" id="galat" role="alert" style="color:var(--bad)"></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="kontak" class="alt">
+    <div class="wrap">
+      <h2>Kontak</h2>
+      <div class="grid g3">
+        <div class="card"><h3>Jam kerja</h3>Senin–Minggu, 07.00–21.00</div>
+        <div class="card"><h3>WhatsApp</h3><a id="waText" href="#" target="_blank" rel="noopener"></a></div>
+        <div class="card"><h3>Area layanan</h3>Tangerang Selatan dan sekitarnya</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<main id="admin">
+  <div class="wrap" id="adminRoot"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b class="brand">Celebrity Tehnic Service</b><br>Servis elektronik rumah tangga terpercaya.</div>
+    <div>© <span id="yr"></span> <span class="brand">Celebrity Tehnic Service</span></div>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+<script src="order-sync.js"></script>
+</body>
+</html>
+    
+<!-- /* ===== PENGATURAN: ubah di sini ===== */
+const CONFIG = {
+  nama: 'ServisPro Elektronik',
+  wa: '6281234567890',            // format 62..., tanpa + atau spasi
+  pin: '1234',                    // PIN dashboard (ganti!)
+  layanan: [
+    {ic:'❄️', n:'AC', items:[
+      'AC tidak dingin','AC menetes atau bocor air','Isi freon dan cek kebocoran','Cuci AC (cuci rutin & cuci besar)',
+      'Bunyi berisik atau bergetar','Kompresor, kapasitor, dan sensor rusak','Remote atau display error','Bongkar pasang AC']},
+    {ic:'🧊', n:'Kulkas', items:[
+      'Kulkas tidak dingin','Freezer berbunga es berlebihan','Kulkas bocor atau berair','Kompresor dan isi freon',
+      'Bunyi kasar atau mesin terus menyala','Karet pintu longgar atau tidak rapat','Mati total atau sering mati sendiri']},
+    {ic:'🧺', n:'Mesin cuci', items:[
+      'Tidak berputar atau tidak berputar saat spin','Tidak mengeringkan','Air tidak masuk atau tidak terbuang',
+      'Bocor','Bunyi keras atau bergetar hebat','Mati total atau muncul kode error','Pintu tidak bisa dibuka atau dikunci']},
+    {ic:'📺', n:'TV', items:[
+      'TV mati total','Layar bergaris, gelap, atau berbayang','Ada suara tetapi tidak ada gambar','Backlight rusak',
+      'Port HDMI atau USB bermasalah','Restart terus atau hang di logo','Remote tidak berfungsi']},
+    {ic:'🔧', n:'Elektronik lainnya', items:[
+      'Dispenser (tidak panas atau tidak dingin, bocor)','Water heater','Pompa air','Kipas angin','Rice cooker']}
+  ]
+};
+const STATUS = ['Baru','Dijadwalkan','Dikerjakan','Selesai','Dibatalkan'];
+const KEY = 'servis_orders_v1';
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rupiah = (n) => 'Rp ' + (Number(n) || 0).toLocaleString('id-ID');
+const tgl = (iso) => { try { return new Date(iso).toLocaleDateString('id-ID', {day:'numeric', month:'short', year:'numeric'}); } catch(e){ return '-'; } };
+
+/* ===== Penyimpanan (localStorage, aman jika diblokir) ===== */
+let memory = [];
+function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return memory; } }
+function save(list){ memory = list; try { localStorage.setItem(KEY, JSON.stringify(list)); } catch(e){} }
+
+/* ===== Halaman publik ===== */
+document.querySelectorAll('.brand').forEach(e => e.textContent = CONFIG.nama);
+$('yr').textContent = new Date().getFullYear();
+const waLink = (txt) => 'https://wa.me/' + CONFIG.wa + (txt ? '?text=' + encodeURIComponent(txt) : '');
+['waQuick','waFloat'].forEach(id => $(id).href = waLink('Halo, saya ingin servis elektronik.'));
+$('waText').href = waLink(''); $('waText').textContent = '+' + CONFIG.wa;
+$('layananGrid').innerHTML = CONFIG.layanan.map(l =>
+  `<div class="card"><div -->
