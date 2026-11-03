@@ -1,6 +1,6 @@
 :root{
-  --ink: #ff45dd; --text:#000000; --muted:#5d6f75; --line:#d9e1e3; --paper:#f4f7f7; --card:#ffffff;
-  --brand:#0f7c80; --brand-dark:#0a5b5e; --wa:#1fa855;
+  --ink: #0b2a4a; --text:#000000; --muted:#5d6f75; --line:#d9e1e3; --paper:#f4f7f7; --card:#ffffff;
+  --brand:#1b5fb4; --brand-dark:#144a8e; --wa:#1fa855;
   --baru:#c2410c; --baru-bg:#ffedd5;
   --jadwal:#1d4ed8; --jadwal-bg:#dbeafe;
   --kerja:#7c3aed; --kerja-bg:#ede9fe;
@@ -20,7 +20,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
 /* Top bar */
-.top{background:var(--ink);color:#000000;position:sticky;top:0;z-index:20}
+.top{background:var(--ink);color:#ffffff;position:sticky;top:0;z-index:20}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
 .top .title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px}
 .top .title small{display:block;font-family:'Public Sans',sans-serif;font-weight:400;font-size:12px;opacity:.75}
@@ -34,7 +34,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn.danger{background:transparent;color:var(--bad);border:1px solid var(--bad)}
 .btn.danger:hover{background:#fee2e2}
 .btn.sm{padding:6px 10px;min-height:34px;font-size:13px}
-.top .btn.ghost{color:#000000}
+.top .btn.ghost{color:#ffffff}
 
 /* Login */
 .login{min-height:calc(100vh - 60px);display:grid;place-items:center;padding:24px}
@@ -101,3 +101,57 @@ td .kel{max-width:260px}
   .top .title small{display:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ===== BURGER MENU ===== */
+.burger{
+  display:none;
+  flex:none;
+  width:44px;height:44px;
+  place-items:center;
+  border:0;border-radius:10px;
+  background:transparent;color:#ffffff;
+  font-size:1.6rem;line-height:1;
+  cursor:pointer;
+}
+.burger:hover{background:rgba(255,255,255,.12)}
+
+@media (max-width:900px){
+  .burger{display:grid}
+
+  .top nav{
+    display:none;
+    position:absolute;
+    top:100%;left:0;right:0;
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+    background:#ffffff;
+    padding:6px 18px 14px;
+    border-top:1px solid rgba(11,42,74,.12);
+    box-shadow:0 12px 24px rgba(0,0,0,.18);
+  }
+  .top nav.open{display:flex}
+
+  .top nav .btn,
+  .top nav .btn.ghost{
+    justify-content:flex-start;
+    background:transparent;
+    border:0;
+    border-bottom:1px solid rgba(11,42,74,.10);
+    border-radius:0;
+    color:#0b2a4a;
+    min-height:50px;
+    padding:14px 0;
+    font-size:1rem;
+  }
+  .top nav .btn:hover{background:rgba(11,42,74,.05);color:#1b5fb4}
+}
+
+/* Tampilkan terus tulisan "Dashboard pesanan" di semua ukuran layar */
+.top .title{min-width:0;line-height:1.2}
+.top .title small{display:block}
+
+@media (max-width:640px){
+  .top .title{font-size:16px}
+  .top .title small{display:block;font-size:11px;opacity:.85}
+}

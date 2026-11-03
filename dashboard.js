@@ -179,3 +179,36 @@ $('exportCsv').addEventListener('click', () => {
 window.addEventListener('storage', (e) => { if (e.key === ORDERS_KEY && !$('appView').hidden) render(); });
 
 tampil(sudahMasuk());
+
+/* ===== Burger menu ===== */
+(function () {
+  const burger = $('burger');
+  const nav = $('topNav');
+  if (!burger || !nav) return;
+
+  function tutup() {
+    nav.classList.remove('open');
+    burger.textContent = '☰';
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Buka menu');
+  }
+
+  burger.addEventListener('click', () => {
+    const buka = nav.classList.toggle('open');
+    burger.textContent = buka ? '✕' : '☰';
+    burger.setAttribute('aria-expanded', String(buka));
+    burger.setAttribute('aria-label', buka ? 'Tutup menu' : 'Buka menu');
+  });
+
+  // Tutup setelah salah satu menu diklik
+  nav.addEventListener('click', (e) => { if (e.target.closest('a,button')) tutup(); });
+
+  // Tutup saat klik di luar menu atau menekan Esc
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !burger.contains(e.target)) tutup();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') tutup(); });
+
+  // Tutup otomatis saat layar kembali lebar
+  window.addEventListener('resize', () => { if (window.innerWidth > 900) tutup(); });
+})();
